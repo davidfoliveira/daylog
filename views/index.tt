@@ -81,15 +81,9 @@
 						<div class="projects">
 							<h4>Projetos</h4>
 							<ul>
-								<li><a href="#">Reunião diária</a></li>
-								<li><a href="#">Manutenção</a></li>
-								<li><a href="#">SAPO Notícias</a></li>
-								<li><a href="#">SAPO Desporto</a></li>
-								<li><a href="#">Banca de jornais</a></li>
-								<li><a href="#">Apps Banca</a></li>
-								<li><a href="#">Plat Sites Especiais</a></li>
-								<li><a href="#">Meta/Cache</a></li>
-								<li><a href="#">SAPO Flipboard</a></li>
+[% FOREACH p IN projects %]
+								<li><a href="#">[% p FILTER html %]</a></li>
+[% END %]
 							</ul>
 						</div>
 					</div>
