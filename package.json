@@ -1,0 +1,36 @@
+{
+  "publishConfig": {
+    "registry": "http://registry-npm.mon.bk.sapo.pt/"
+  },
+  "author": "David Oliveira <david-oliveira@telecom.pt>",
+  "name": "sapo-daylog",
+  "description": "SAPO Contents team day log",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git@git.gitlab.intra.sapo.pt:conduto/sapo-nodelib.git"
+  },
+  "bin": { "index": "bin/index.js" },
+  "dependencies": {
+    "async": ">=1.2.1",
+    "smtp-connection": ">=1.1.0",
+    "spritz": ">=0.2.7",
+    "sqlite3": ">=3.0.8",
+    
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "license": "Copyright",
+  "engines": {
+    "node": ">=0.10.5"
+  },
+  "scripts": {
+	"test" : "./run_tests",
+    "preinstall": "npm install mongodb '-mongodb:native'"
+  },
+  "keywords": [
+    "async",
+    "asynchronous",
+    "sapo-nodelib"
+  ]
+}

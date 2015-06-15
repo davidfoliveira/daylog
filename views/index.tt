@@ -1,0 +1,107 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="http://cdn.ink.sapo.pt/3.0.5/css/ink-flex.min.css">
+		<link rel="stylesheet" type="text/css" href="http://cdn.ink.sapo.pt/3.0.5/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+		<script type="text/javascript" src="http://cdn.ink.sapo.pt/3.0.0/js/ink-all.js"></script>
+		<script type="text/javascript" src="http://cdn.ink.sapo.pt/3.0.0/js/autoload.js"></script>
+		<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	</head>
+	<body data-user="[% user %]"[% IF viewUser != user %] class="locked"[% END %]>
+
+[% INCLUDE comps/menu.tt -%]
+
+		<div class="ink-grid">
+
+			<div class="column-group preheader">
+				<div class="control large-85 xlarge-85 hide-small"></div>
+				<div class="control large-15 xlarge-15 small-100">
+					<select class="usersel">
+[% FOREACH user IN users -%]
+						<option value="[% user %]"[% IF user == viewUser %] selected[% END %]>[% user %]</option>
+[% END -%]
+					</select>
+				</div>
+			</div>
+
+[% INCLUDE comps/header.tt -%]
+
+			<div class="ink-form">
+				<div class="control-group column-group no-margin">
+					<div class="control large-20 xlarge-20 small-100">
+						<input type="text" id="dayPicker" class="ink-datepicker" value="[% date %]" data-prev="[% date %]"/>
+					</div>
+					<div class="control large-60 xlarge-60 hide-small"></div>
+				</div>
+
+				<div class="mainpane column-group horizontal-gutters">
+
+					<div class="midpane large-80 xlarge-80 small-100">
+
+						<div class="timechartPH midpane large-100 xlarge-100 small-100">
+							<div id="timechart" class="timechart"></div>
+						</div>
+
+						<div class="log">
+							<table class="ink-table">
+								<thead>
+									<tr>
+										<th class="project">Project</th>
+										<th class="time">Time</th>
+										<th class="toold"></th>
+									</tr>
+								</thead>
+								<tbody>
+[% FOREACH row IN todaysLog -%]
+									<tr>
+										<td class="project" title="[% row.Notes FILTER html %]" data-notes="[% row.Notes FILTER html %]">[% row.Task %]</td>
+										<td class="time">[% row.Time %]</td>
+										<td class="tools"><button class="del fa fa-trash-o"></button></td>
+									</tr>
+[% END -%]
+								</tbody>
+							</table>
+						</div>
+						<div class="totals">
+							<table class="ink-table">
+								<tr>
+									<td class="project"></td>
+									<td class="time">[% total %]</td>
+									<td class="tools"></td>
+								</tr>
+							</table>
+						</div>
+						<div class="button-group">
+							<button id="newevent" class="ink-button blue">+</button>
+							<button id="newtxtevents" class="ink-button blue">+ .txt</button>
+							<button id="save" class="ink-button green">Gravar</button>
+						</div>
+					</div>
+					<div class="large-20 xlarge-20 small-100">
+						<div class="projects">
+							<h4>Projetos</h4>
+							<ul>
+								<li><a href="#">Reunião diária</a></li>
+								<li><a href="#">Manutenção</a></li>
+								<li><a href="#">SAPO Notícias</a></li>
+								<li><a href="#">SAPO Desporto</a></li>
+								<li><a href="#">Banca de jornais</a></li>
+								<li><a href="#">Apps Banca</a></li>
+								<li><a href="#">Plat Sites Especiais</a></li>
+								<li><a href="#">Meta/Cache</a></li>
+								<li><a href="#">SAPO Flipboard</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+[% INCLUDE comps/modal.tt -%]
+
+		<script type="text/javascript" src="/assets/js/ztimechart.js?2"></script>
+		<script type="text/javascript" src="/assets/js/main.js?2"></script>
+
+	</body>
+</html>

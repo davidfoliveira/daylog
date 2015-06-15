@@ -1,0 +1,34 @@
+{
+  "author": {
+    "name": "David Oliveira",
+    "email": "d.oliveira@prozone.org"
+  },
+  "name": "tt2",
+  "description": "A template toolking (TT2) parser/processor",
+  "version": "0.1.5",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidfoliveira/node-tt2/"
+  },
+  "main": "./lib/tt2",
+  "bin": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "license": "Copyleft",
+  "engines": {
+    "node": ">=0.10.5"
+  },
+  "keywords": [
+    "tt2",
+    "template",
+    "toolkit"
+  ],
+  "readme": "# node-tt2: A Template Toolkit parser and processor for Node.JS\n",
+  "readmeFilename": "README.md",
+  "gitHead": "3307e20b54a0c8248ce15469601a4753ab171c81",
+  "_id": "tt2@0.1.5",
+  "scripts": {},
+  "_shasum": "d36c74e0a13eb5e957e7b902d78a8c43b36cc8cf",
+  "_from": "/Users/david/projects/node-tt2"
+}

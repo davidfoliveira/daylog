@@ -1,0 +1,6 @@
+		<nav class="ink-navigation">
+			<ul class="menu horizontal black">
+				<li><a href="/">Home</a></li>
+				<li><a href="/reports/custeio/">Custeio</a></li>
+			</ul>
+		</nav>

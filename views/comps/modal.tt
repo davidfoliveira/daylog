@@ -1,0 +1,18 @@
+<div class="ink-shade fade">
+    <div id="myModal" class="ink-modal fade" data-trigger="#newtxtevents" data-width="80%" data-height="80%" role="dialog" aria-hidden="true" aria-labelled-by="modal-title">
+        <div class="modal-header">
+            <button class="modal-close ink-dismiss"></button>
+            <h2 id="modal-title">Bota praí texto</h2>
+        </div>
+        <div class="modal-body" id="modalContent">
+            <div class="ink-form">
+                <textarea id="code" class="text textarea code"></textarea>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="push-right">
+                <button class="ink-button blue">+</button>
+            </div>
+        </div>
+    </div>
+</div>

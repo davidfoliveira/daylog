@@ -1,0 +1,413 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		638C2B6C1B2990D400816233 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638C2B6B1B2990D400816233 /* AppDelegate.swift */; };
+		638C2B6E1B2990D400816233 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 638C2B6D1B2990D400816233 /* Images.xcassets */; };
+		638C2B711B2990D400816233 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638C2B6F1B2990D400816233 /* MainMenu.xib */; };
+		638C2B7D1B2990D400816233 /* DaylogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638C2B7C1B2990D400816233 /* DaylogTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		638C2B771B2990D400816233 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 638C2B5E1B2990D400816233 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 638C2B651B2990D400816233;
+			remoteInfo = Daylog;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		638C2B661B2990D400816233 /* Daylog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daylog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		638C2B6A1B2990D400816233 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		638C2B6B1B2990D400816233 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		638C2B6D1B2990D400816233 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		638C2B701B2990D400816233 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		638C2B761B2990D400816233 /* DaylogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DaylogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		638C2B7B1B2990D400816233 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		638C2B7C1B2990D400816233 /* DaylogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaylogTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		638C2B631B2990D400816233 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		638C2B731B2990D400816233 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		638C2B5D1B2990D400816233 = {
+			isa = PBXGroup;
+			children = (
+				638C2B681B2990D400816233 /* Daylog */,
+				638C2B791B2990D400816233 /* DaylogTests */,
+				638C2B671B2990D400816233 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		638C2B671B2990D400816233 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				638C2B661B2990D400816233 /* Daylog.app */,
+				638C2B761B2990D400816233 /* DaylogTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		638C2B681B2990D400816233 /* Daylog */ = {
+			isa = PBXGroup;
+			children = (
+				638C2B6B1B2990D400816233 /* AppDelegate.swift */,
+				638C2B6D1B2990D400816233 /* Images.xcassets */,
+				638C2B6F1B2990D400816233 /* MainMenu.xib */,
+				638C2B691B2990D400816233 /* Supporting Files */,
+			);
+			path = Daylog;
+			sourceTree = "<group>";
+		};
+		638C2B691B2990D400816233 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				638C2B6A1B2990D400816233 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		638C2B791B2990D400816233 /* DaylogTests */ = {
+			isa = PBXGroup;
+			children = (
+				638C2B7C1B2990D400816233 /* DaylogTests.swift */,
+				638C2B7A1B2990D400816233 /* Supporting Files */,
+			);
+			path = DaylogTests;
+			sourceTree = "<group>";
+		};
+		638C2B7A1B2990D400816233 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				638C2B7B1B2990D400816233 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		638C2B651B2990D400816233 /* Daylog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 638C2B801B2990D400816233 /* Build configuration list for PBXNativeTarget "Daylog" */;
+			buildPhases = (
+				638C2B621B2990D400816233 /* Sources */,
+				638C2B631B2990D400816233 /* Frameworks */,
+				638C2B641B2990D400816233 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Daylog;
+			productName = Daylog;
+			productReference = 638C2B661B2990D400816233 /* Daylog.app */;
+			productType = "com.apple.product-type.application";
+		};
+		638C2B751B2990D400816233 /* DaylogTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 638C2B831B2990D400816233 /* Build configuration list for PBXNativeTarget "DaylogTests" */;
+			buildPhases = (
+				638C2B721B2990D400816233 /* Sources */,
+				638C2B731B2990D400816233 /* Frameworks */,
+				638C2B741B2990D400816233 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				638C2B781B2990D400816233 /* PBXTargetDependency */,
+			);
+			name = DaylogTests;
+			productName = DaylogTests;
+			productReference = 638C2B761B2990D400816233 /* DaylogTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		638C2B5E1B2990D400816233 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "David Oliveira";
+				TargetAttributes = {
+					638C2B651B2990D400816233 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					638C2B751B2990D400816233 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 638C2B651B2990D400816233;
+					};
+				};
+			};
+			buildConfigurationList = 638C2B611B2990D400816233 /* Build configuration list for PBXProject "Daylog" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 638C2B5D1B2990D400816233;
+			productRefGroup = 638C2B671B2990D400816233 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				638C2B651B2990D400816233 /* Daylog */,
+				638C2B751B2990D400816233 /* DaylogTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		638C2B641B2990D400816233 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				638C2B6E1B2990D400816233 /* Images.xcassets in Resources */,
+				638C2B711B2990D400816233 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		638C2B741B2990D400816233 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		638C2B621B2990D400816233 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				638C2B6C1B2990D400816233 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		638C2B721B2990D400816233 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				638C2B7D1B2990D400816233 /* DaylogTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		638C2B781B2990D400816233 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 638C2B651B2990D400816233 /* Daylog */;
+			targetProxy = 638C2B771B2990D400816233 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		638C2B6F1B2990D400816233 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				638C2B701B2990D400816233 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		638C2B7E1B2990D400816233 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		638C2B7F1B2990D400816233 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		638C2B811B2990D400816233 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Daylog/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		638C2B821B2990D400816233 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Daylog/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		638C2B841B2990D400816233 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = DaylogTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Daylog.app/Contents/MacOS/Daylog";
+			};
+			name = Debug;
+		};
+		638C2B851B2990D400816233 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = DaylogTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Daylog.app/Contents/MacOS/Daylog";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		638C2B611B2990D400816233 /* Build configuration list for PBXProject "Daylog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				638C2B7E1B2990D400816233 /* Debug */,
+				638C2B7F1B2990D400816233 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		638C2B801B2990D400816233 /* Build configuration list for PBXNativeTarget "Daylog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				638C2B811B2990D400816233 /* Debug */,
+				638C2B821B2990D400816233 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		638C2B831B2990D400816233 /* Build configuration list for PBXNativeTarget "DaylogTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				638C2B841B2990D400816233 /* Debug */,
+				638C2B851B2990D400816233 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 638C2B5E1B2990D400816233 /* Project object */;
+}

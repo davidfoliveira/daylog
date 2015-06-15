@@ -1,0 +1,37 @@
+.preheader { margin-top: 1em }
+header { margin-top: 1em }
+#editable.time { width: 50% }
+.mainpane { margin-top: 2em }
+.log { margin-top: 2em }
+.log table { margin-bottom: 0; }
+.log table thead th { text-align: left }
+.log table .project { width: 70%; }
+.log table .time { width: 20%; vertical-align:text-top; }
+.log table .tools { width: 10%; vertical-align:text-top; }
+.log table tr:nth-child(even) { background: #F5F5F5 }
+.totals table { margin-top: 0;}
+.totals table tr { border-top: solid 2px silver; background: #EEE; }
+.totals table .project { width: 70%; }
+.totals table .time { width: 20%; vertical-align:text-top; font-weight: bold; }
+.totals table .tools { width: 10%; vertical-align:text-top; }
+.totals .changed { background: yellow; }
+
+.ink-datepicker { width: 150px !important }
+.ink-datepicker { background: url(/assets/icons/24-Time-And-Date-Calendar-icon.png) no-repeat 120px center !important; }
+.projects { padding: 1em; background: #F2F2F2 }
+.projects ul { padding: 0 }
+.projects li { list-style-type: none; padding: 0; }
+.textarea.code { width: 100%; height: 100%; font-family: "Courier new"; font-size: .8em }
+.textarea.notes { width: 70%; height: 10em; }
+.locked .midpane { opacity: .5 }
+
+.report.custeio .day { border-top: solid 2px silver; }
+.report.custeio .day .date { font-weight: bold; }
+.report.custeio .day { color: #AAA; }
+.report.custeio .project { text-indent: 3em; width: 75% }
+.report.custeio thead { text-align: left }
+.report.custeio .notes { display: block; margin-left: 1em; font-size: .8em; color: #aaa }
+
+.timechart .ztimechart { position: relative; height: 22px; border: solid 1px silver; margin: 0; padding: 0 }
+.timechart .ztimechart li { list-style-type: none; position: absolute; height: 20px; padding: 0; margin: 0; border-left: solid 1px silver; }
+.timechart .ztimechart .interval { background: #EFEFEF }
