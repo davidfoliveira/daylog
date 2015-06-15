@@ -52,6 +52,20 @@ spritz.on('/services/projects',{auth:null},function(req,res){
 
 });
 
+spritz.on('/services/topprojects',{auth:null},function(req,res){
+
+	return bizTasks.getTopProjects(req.args.user,function(err,projects){
+		if ( err ) {
+			console.log("Error getting project list: ",err);
+			return spritz.json(req,res,err,500);
+		}
+
+		return spritz.json(req,res,projects,200);
+	});
+
+});
+
+
 // Add a task and set as current task
 spritz.on('/services/switch',function(req,res){
 
@@ -178,19 +192,23 @@ spritz.on('/',function(req,res){
 			return spritz.json(req,res,{error:"EGYDYL",description: "Error getting user daylog", details: err},500);
 		}
 
-		// Convert time to string and count the total time
-		rows.forEach(function(row){
-			total += row.Time;
-			row.Time = minutesToStr(row.Time);
-		});
+		// Get top projects
+		return bizTasks.getTopProjects(viewUser,function(err,topProjects){
+			// Convert time to string and count the total time
+			rows.forEach(function(row){
+				total += row.Time;
+				row.Time = minutesToStr(row.Time);
+			});
 
-		return spritz.template(req,res,'index',{
-			user:       req.authUser,
-			viewUser:   viewUser,
-			date:       strDate,
-			todaysLog:  rows,
-			total:	    minutesToStr(total),
-			users:      Object.keys(conf.auths).sort(),
+			return spritz.template(req,res,'index',{
+				user:       req.authUser,
+				viewUser:   viewUser,
+				date:       strDate,
+				todaysLog:  rows,
+				total:	    minutesToStr(total),
+				users:      Object.keys(conf.auths).sort(),
+				projects:	topProjects
+			});
 		});
 	});
 
