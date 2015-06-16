@@ -33,8 +33,8 @@ if ( !window.$_ ) {
 		if ( str instanceof Date ) {
 			now.setHours(str.getHours());
 			now.setMinutes(str.getMinutes());
-			now.setSeconds(str.getSeconds());
-			now.setMilliseconds(str.getMilliseconds());
+			now.setSeconds(0); //str.getSeconds());
+			now.setMilliseconds(0); //str.getMilliseconds());
 			return now;
 		}
 
@@ -99,8 +99,6 @@ if ( !window.$_ ) {
 		self.opts = opts;
 
 		// Build default options
-		if ( !opts.daySizeMs )
-			opts.daySizeMs = 86400000;
 		if ( !opts.defaultColor )
 			opts.defaultColor = '#000';
 		if ( opts.showIntervals == null )
@@ -122,6 +120,11 @@ if ( !window.$_ ) {
 		}
 		else if ( opts.dayStartMs == null )
 			opts.dayStartMs = 0;
+		if ( typeof opts.dayEnd == "function" && opts.daySizeMs == null ) {
+			opts.daySizeMs = opts.dayEnd(data) - today() - opts.dayStartMs;
+		}
+		else if ( opts.daySizeMs == null )
+			opts.daySizeMs = 86400000;
 
 		// Build the elements DOM
 		var

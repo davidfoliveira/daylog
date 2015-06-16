@@ -535,9 +535,17 @@ function rebuildTimeChart() {
 			nineoclock.setMilliseconds(0);
 			return (intervals[0] && intervals[0].start < nineoclock) ? intervals[0].start : nineoclock;
 		},
+		dayEnd: function(intervals){
+			var twentyoclock = new Date();
+			twentyoclock.setHours(20);
+			twentyoclock.setMinutes(0);
+			twentyoclock.setSeconds(0);
+			twentyoclock.setMilliseconds(0);
+			return (intervals[intervals.length-1] && intervals[intervals.length-1].end > twentyoclock) ? intervals[intervals.length-1].end : twentyoclock;
+		},
 //		dayStartMs: 28800000,
 		adaptableDayStart: true,
-		daySizeMs:  43200000,
+//		daySizeMs:  43200000,
 		titleGenerator: function(el,pos,msDim,opts){
 			var
 				title = "",
