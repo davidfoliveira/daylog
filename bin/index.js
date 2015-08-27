@@ -17,6 +17,8 @@ spritz.start({
 	port: 8090
 });
 
+spritz.use(require('spritz-tt2'));
+
 // Public
 spritz.on(/^\/services\/today$/,{auth:null},function(req,res){
 

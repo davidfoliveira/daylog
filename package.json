@@ -14,7 +14,8 @@
   "dependencies": {
     "async": ">=1.2.1",
     "smtp-connection": ">=1.1.0",
-    "spritz": ">=0.2.7",
+    "spritz": ">=0.5.2",
+    "spritz-tt2": ">=0.1.0",
     "sqlite3": ">=3.0.8"
   },
   "devDependencies": {},
