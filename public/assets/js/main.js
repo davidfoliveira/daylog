@@ -111,7 +111,7 @@ if ( !locked ) {
 		// Save
 		$.ajax({
 			type: "POST",
-			url:  "/save",
+			url:  location.href.match(/\/daylog\//) ? location.href.replace(/\/daylog\//,"/daylog/save") : "/save",
 			data: JSON.stringify({date: $("#dayPicker").val(), rows: rows}),
 			dataType: "json",
 			contentType: "application/json; charset=utf-8",
@@ -126,7 +126,7 @@ if ( !locked ) {
 				var
 					userTitle = "Senhor";
 
-				$(".log").after($('<div class="ink-alert basic fade success" role="alert" id="alert"><button class="ink-dismiss">&times;</button><p><b>'+userTitle+':</b> Dados gravados com sucesso.</p></div>'));
+				$(".log").after($('<div class="ink-alert basic fade success" role="alert" id="alert"><button class="ink-dismiss">&times;</button><p><b>'+userTitle+':</b> Data sucessfully saved.</p></div>'));
 				setTimeout(function(){
 					$("#alert").remove();
 				},1500);
@@ -185,7 +185,7 @@ if ( !locked ) {
 				}
 
 				if ( time == null ) {
-					alert("Error parsing time string. Line #"+x);						
+					alert("Error parsing time string. Line #"+x);
 					return;
 				}
 				newEvent(name,time,details);
@@ -312,7 +312,7 @@ var onFinishEditing = {
 			pval = sanitizeTimeString(val);
 
 		if ( pval == null ) {
-			alert("Valor inválido: '"+val+"'");
+			alert("Invalid value: '"+val+"'");
 			return false;
 		}
 
@@ -464,14 +464,16 @@ var calculateNoteTimes = function(el){
 		minutes = 0,
 		timeIntervals = [];
 
-	val.replace(/^\s*\(\s*(\d{1,2}):(\d{1,2})\s+[aà]s\s+(\d{1,2}):(\d{1,2})\s*\)/gm,function(all,startHour,startMin,endHour,endMin){
+	val.replace(/^\s*\(?\s*(\d{1,2}):(\d{1,2})\s+(?:[aà]s|\-)\s+(\d{1,2}):(\d{1,2})\s*\)?/gm,function(all,startHour,startMin,endHour,endMin){
 		var
 			startDate = new Date(),
 			endDate = new Date();
 		startDate.setHours(parseInt(startHour));
 		startDate.setMinutes(parseInt(startMin));
+		startDate.setSeconds(0);
 		endDate.setHours(parseInt(endHour));
 		endDate.setMinutes(parseInt(endMin));
+		endDate.setSeconds(0);
 		if ( endDate < startDate ) {
 			var tmp = endDate;
 			endDate = startDate;
@@ -505,21 +507,24 @@ function rebuildTimeChart() {
 			task = $(taskCel),
 			val  = task.attr("data-notes");
 
-		val.replace(/^\s*\(\s*(\d{1,2}):(\d{1,2})\s+[aà]s\s+(\d{1,2}):(\d{1,2})\s*\)/gm,function(all,startHour,startMin,endHour,endMin){
+		val.replace(/^\s*\(?\s*(\d{1,2}):(\d{1,2})\s+(?:[aà]s|\-)\s+(\d{1,2}):(\d{1,2})\s*\)?/gm,function(all,startHour,startMin,endHour,endMin){
 			var
 				startDate = new Date(),
 				endDate = new Date();
 			startDate.setHours(parseInt(startHour));
 			startDate.setMinutes(parseInt(startMin));
+			startDate.setSeconds(0);
 			endDate.setHours(parseInt(endHour));
 			endDate.setMinutes(parseInt(endMin));
+			endDate.setSeconds(0);
 			if ( endDate < startDate ) {
 				var tmp = endDate;
 				endDate = startDate;
 	                        startDate = tmp;
 	                }
 //	                minutes += (endDate - startDate) / 60000;
-	                timeIntervals.push({ start: startDate, end: endDate, color: '#0C0', title: ((endDate - startDate) / 60000)+' minutes' });
+			color = val.match(/Private|Personal/) ? '#EAA' : task.text().match(/Break/i) ? '#AEA' : '#0C0';
+	                timeIntervals.push({ start: startDate, end: endDate, color: color, title: ((endDate - startDate) / 60000)+' minutes' });
 	                return "";
 	        });
 	});
@@ -569,7 +574,11 @@ function calculateTimes(){
 	var
 		total = 0;
 
-	$(".log table tbody .time").each(function(idx,el){
+	$(".log table tbody tr").each(function(idx,lineEl){
+		var taskName = $(lineEl).find(".project").text();
+		if (taskName.match(/(Personal|Private)/))
+			return;
+		el = $($(lineEl).find(".time"));
 		var time = parseTimeString($(el).text());
 		total += time;
 	});
@@ -581,6 +590,21 @@ function calculateTimes(){
 
 };
 
+function updateLineColours() {
+
+	$(".log table tbody tr").each(function(idx,lineEl){
+		var taskName = $(lineEl).find(".project").text();
+		$(lineEl).removeClass(function (index, className) {
+			return (className.match(/(^|\s)tag_\S+/g) || []).join(' ');
+		});
+		if (taskName.match(/(Personal|Private)/))
+			$(lineEl).addClass("tag_personal");
+		else if (taskName.match(/(Break)/))
+			$(lineEl).addClass("tag_break");
+	});
+
+}
+
 
 // User make some changes
 var changed = false;
@@ -590,6 +614,8 @@ var userMadeChanges = function(){
 		return;
 	changed = true;
 
+	updateLineColours();
+
 	window.onbeforeunload = function (e) {
 		return changed ? 'Sir: you have made some changes on your daily log, are you sure about geting away from here?' : null;
 	};
@@ -598,5 +624,6 @@ var userMadeChanges = function(){
 
 
 // Generate time chart
+calculateTimes()
+updateLineColours();
 rebuildTimeChart();
-

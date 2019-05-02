@@ -10,13 +10,16 @@
     "type": "git",
     "url": "https://github.com/davidfoliveira/daylog"
   },
-  "bin": { "index": "bin/index.js" },
+  "bin": {
+    "index": "bin/index.js"
+  },
   "dependencies": {
     "async": ">=1.2.1",
     "smtp-connection": ">=1.1.0",
-    "spritz": ">=0.5.2",
-    "spritz-tt2": ">=0.1.0",
-    "sqlite3": ">=3.0.8"
+    "spritz": ">=0.5.12",
+    "spritz-tt2": "file:../node-spritz-tt2",
+    "sqlite3": ">=3.0.8",
+    "tt2": "file:../node-tt2"
   },
   "devDependencies": {},
   "optionalDependencies": {},
@@ -25,7 +28,7 @@
     "node": ">=0.10.5"
   },
   "scripts": {
-	"test" : "./run_tests"
+    "test": "./run_tests"
   },
   "keywords": [
     "logging",

@@ -9,6 +9,8 @@ header { margin-top: 1em }
 .log table .time { width: 20%; vertical-align:text-top; }
 .log table .tools { width: 10%; vertical-align:text-top; }
 .log table tr:nth-child(even) { background: #F5F5F5 }
+.log .tag_personal { background: #ECC !important }
+.log .tag_break { background: #DED !important }
 .totals table { margin-top: 0;}
 .totals table tr { border-top: solid 2px silver; background: #EEE; }
 .totals table .project { width: 70%; }
@@ -17,7 +19,7 @@ header { margin-top: 1em }
 .totals .changed { background: yellow; }
 
 .ink-datepicker { width: 150px !important }
-.ink-datepicker { background: url(/assets/icons/24-Time-And-Date-Calendar-icon.png) no-repeat 120px center !important; }
+.ink-datepicker { background: url(//prozone.org/daylog/assets/icons/24-Time-And-Date-Calendar-icon.png) no-repeat 120px center !important; }
 .projects { padding: 1em; background: #F2F2F2 }
 .projects ul { padding: 0 }
 .projects li { list-style-type: none; padding: 0; }
@@ -35,3 +37,4 @@ header { margin-top: 1em }
 .timechart .ztimechart { position: relative; height: 22px; border: solid 1px silver; margin: 0; padding: 0 }
 .timechart .ztimechart li { list-style-type: none; position: absolute; height: 20px; padding: 0; margin: 0; border-left: solid 1px silver; }
 .timechart .ztimechart .interval { background: #EFEFEF }
+
