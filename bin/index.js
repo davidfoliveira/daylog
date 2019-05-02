@@ -278,25 +278,24 @@ spritz.on(/^\/reports\/by\/project\/$/, {auth: authCheck}, function(req,res){
     // Parse date
     if ( dateFrom && dateFrom.match(/^\d{4}\-\d{1,2}\-\d{1,2}$/) ) {
         try {
-            dateFrom = datetime.fromString(dateFrom.substr(0,7)+"/01");
+            dateFrom = datetime.fromString(dateFrom.replace(/^(\d{4}[\/-]\d{1,2}).*$/, "$1/1"));
         }
-        catch(ex){}
+        catch(ex){
+            console.log("EXL", ex);
+        }
     }
     else
         dateFrom = null;
     if ( !dateFrom ) {
         dateFrom = new Date();
         dateFrom.setDate(1);
+        dateFrom = datetime.fromString(dateFrom.toJSON().substr(0, 10))
     }
-
-    // Hours doesn't matter
-    dateFrom.setHours(0);
-    dateFrom.setMinutes(0);
-    dateFrom.setSeconds(0);
-    dateFrom.setMilliseconds(0);
 
     dateTo = new Date(dateFrom.getTime());
     dateTo.setMonth(dateTo.getMonth()+1);
+    console.log("FR: ", dateFrom);
+    console.log("DT: ", dateTo);
 
     // Query the database
     return bizTasks.list({Username:viewUser,Date:{$gte:dateFrom,$lt:dateTo}},[['Date',1],['Task',1]],function(err,rows){
@@ -330,7 +329,7 @@ spritz.on(/^\/reports\/by\/project\/$/, {auth: authCheck}, function(req,res){
 
             // Count number of hours for current day
             Object.keys(projectsByDay[day]).sort().forEach(function(project){
-                today.Total += projectsByDay[day][project];
+                today.Total += !_excludeFromReport(project) ? projectsByDay[day][project] : 0;
                 if ( _excludeFromReport(project) )
                     excludedTime += projectsByDay[day][project];
             });
@@ -338,12 +337,23 @@ spritz.on(/^\/reports\/by\/project\/$/, {auth: authCheck}, function(req,res){
             Object.keys(projectsByDay[day]).sort().forEach(function(project){
                 var
                     pct = !_excludeFromReport(project) ?
-                        ((projectsByDay[day][project] * 100)/(today.Total-excludedTime)).toFixed(2)+" %" :
+                        ((projectsByDay[day][project] * 100)/today.Total).toFixed(2)+" %" :
                         "N/A";
                 if ( !req.args.grep || project.toString().indexOf(req.args.grep.toString()) > -1 )
                     today.Projects.push({Name: project, Time: minutesToStr(projectsByDay[day][project]), Percentage: pct, Tasks: tasksByDayProject[day][project]});
             });
             today.TotalTime = minutesToStr(today.Total);
+            today.Projects.sort(function(a, b){
+                if (a.Percentage == "N/A")
+                    return 1;
+                if (b.Percentage == "N/A")
+                    return -1;
+                if (parseFloat(a.Percentage) > parseFloat(b.Percentage))
+                    return -1;
+                if (parseFloat(b.Percentage) > parseFloat(a.Percentage))
+                    return 1;
+                return 0;
+            });
             days.push(today);
         });
 
@@ -366,7 +376,7 @@ spritz.on(/^\/reports\/by\/project\/$/, {auth: authCheck}, function(req,res){
 // Useful functions
 
 function _excludeFromReport(project) {
-    return !(project.match(/xcludeme/));
+    return project.match(/Personal|Private/);
 }
 
 function minutesToStr(min) {

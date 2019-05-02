@@ -35,6 +35,6 @@ header { margin-top: 1em }
 .report.custeio .notes { display: block; margin-left: 1em; font-size: .8em; color: #aaa }
 
 .timechart .ztimechart { position: relative; height: 22px; border: solid 1px silver; margin: 0; padding: 0 }
-.timechart .ztimechart li { list-style-type: none; position: absolute; height: 20px; padding: 0; margin: 0; border-left: solid 1px silver; }
+.timechart .ztimechart li { list-style-type: none; position: absolute; height: 20px; padding: 0; margin: 0; zborder-left: solid 1px silver; }
 .timechart .ztimechart .interval { background: #EFEFEF }
 

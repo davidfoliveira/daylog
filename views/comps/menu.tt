@@ -1,6 +1,6 @@
 		<nav class="ink-navigation">
 			<ul class="menu horizontal black">
 				<li><a href="/">Home</a></li>
-				<li><a href="/reports/by/project/">Custeio</a></li>
+				<li><a href="/reports/by/project/">Report</a></li>
 			</ul>
 		</nav>
