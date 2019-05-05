@@ -19,7 +19,7 @@ header { margin-top: 1em }
 .totals .changed { background: yellow; }
 
 .ink-datepicker { width: 150px !important }
-.ink-datepicker { background: url(//prozone.org/daylog/assets/icons/24-Time-And-Date-Calendar-icon.png) no-repeat 120px center !important; }
+.ink-datepicker { background: url(/assets/icons/24-Time-And-Date-Calendar-icon.png) no-repeat 120px center !important; }
 .projects { padding: 1em; background: #F2F2F2 }
 .projects ul { padding: 0 }
 .projects li { list-style-type: none; padding: 0; }

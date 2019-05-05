@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Daylog.xcscheme_^#shared#^_</key>
+		<key>Daylog.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,17 +12,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>633769DC227D80C2006EE2F3</key>
+		<key>638C2B651B2990D400816233</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>633769EE227D80C5006EE2F3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>633769F9227D80C5006EE2F3</key>
+		<key>638C2B751B2990D400816233</key>
 		<dict>
 			<key>primary</key>
 			<true/>

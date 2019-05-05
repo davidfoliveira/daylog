@@ -20,8 +20,16 @@ spritz.start({
 
 spritz.use(require('spritz-tt2'));
 
+// Basic auth handler
+var authCheck = function(u,p,cb){
+    if ( conf.auths[u] != null && p == conf.auths[u] )
+        return cb(null,true);
+    return cb(null,false);
+};
+
+
 // Public
-spritz.on(/^\/services\/today$/,{auth:null},function(req,res){
+spritz.on(/^\/services\/today$/,{auth: authCheck},function(req,res){
 
     var
         today = new Date(),
@@ -39,7 +47,7 @@ spritz.on(/^\/services\/today$/,{auth:null},function(req,res){
 
 });
 
-spritz.on('/services/projects',{auth:null},function(req,res){
+spritz.on('/services/projects',{auth: authCheck},function(req,res){
 
     var
         filter = {};
@@ -55,22 +63,36 @@ spritz.on('/services/projects',{auth:null},function(req,res){
 
 });
 
-spritz.on('/services/topprojects',{auth:null},function(req,res){
+spritz.on('/services/topprojects',{auth: authCheck},function(req,res){
+    var
+        user = req.args.user || req.authUser;
 
-    return bizTasks.getTopProjects(req.args.user,function(err,projects){
+    return bizTasks.getTopProjects(user, 3, 10, function(err,projects){
         if ( err ) {
             console.log("Error getting project list: ",err);
             return spritz.json(req,res,err,500);
         }
 
-        return spritz.json(req,res,projects,200);
+        // Get the currently active project
+        bizTasks.getCurrentTask(user, function(err, task){
+            if ( err ) {
+                console.log("Error getting current task: ", err);
+                return spritz.json(req, res, err, 500);
+            }
+
+            return spritz.json(req,res,{
+                projects,
+                active: task ? task.Task : null
+            },200);            
+        });
+
     });
 
 });
 
 
 // Add a task and set as current task
-spritz.on('/services/switch',function(req,res){
+spritz.on('/services/switch',{auth: authCheck}, function(req,res){
 
     var
         user = req.authUser,
@@ -83,7 +105,7 @@ spritz.on('/services/switch',function(req,res){
         return spritz.json(req,res,{error:"ENOTASK",description:"Please specify a task name (t=)"},500);
 
     // Get current task
-    bizTasks.switchTask(user,taskName,function(err,task){
+    bizTasks.switchTask(user, taskName,function(err,task){
         if ( err ) {
             log.error("Error switching user '"+user+"' task: ",err);
             return spritz.json(req,res,{error:"ESWTSK",description:"Error switching user task",detail:err},500);
@@ -95,7 +117,7 @@ spritz.on('/services/switch',function(req,res){
 });
 
 // Close a task and set as current task
-spritz.on('/services/close',function(req,res){
+spritz.on('/services/close', {auth: authCheck}, function(req,res){
 
     var
         user = req.authUser;
@@ -125,7 +147,7 @@ spritz.on('/services/close',function(req,res){
 });
 
 // Resume a task and set as current task
-spritz.on('/services/resume',function(req,res){
+spritz.on('/services/resume', {auth: authCheck}, function(req,res){
 
     var
         user = req.authUser,
@@ -155,14 +177,6 @@ spritz.on('/services/resume',function(req,res){
 
 });
 
-
-
-// Basic auth handler
-var authCheck = function(u,p,cb){
-    if ( conf.auths[u] != null && p == conf.auths[u] )
-        return cb(null,true);
-    return cb(null,false);
-};
 
 // Assets / static content handler
 spritz.on(/^\/assets\//,function(req,res){
@@ -197,7 +211,7 @@ spritz.on('/', {auth: authCheck}, function(req,res){
         }
 
         // Get top projects
-        return bizTasks.getTopProjects(viewUser,function(err,topProjects){
+        return bizTasks.getTopProjects(viewUser, 30, 10, function(err,topProjects){
             // Convert time to string and count the total time
             rows.forEach(function(row){
                 total += row.Time;
@@ -242,7 +256,7 @@ spritz.on('/save',{method:"POST", auth: authCheck},function(req,res){
 
     // Check each row
     req.POSTjson.rows.forEach(function(row){
-        if ( !row.Task || row.Task.toString().trim() == "" || !row.Time || !strToMinutes(row.Time) )
+        if ( !row.Task || row.Task.toString().trim() == "" || !row.Time || strToMinutes(row.Time) == null )
             return;
         var
             storeRow = { Username: req.authUser, Date: date, Task: row.Task.toString(), Time: strToMinutes(row.Time) };
@@ -294,8 +308,6 @@ spritz.on(/^\/reports\/by\/project\/$/, {auth: authCheck}, function(req,res){
 
     dateTo = new Date(dateFrom.getTime());
     dateTo.setMonth(dateTo.getMonth()+1);
-    console.log("FR: ", dateFrom);
-    console.log("DT: ", dateTo);
 
     // Query the database
     return bizTasks.list({Username:viewUser,Date:{$gte:dateFrom,$lt:dateTo}},[['Date',1],['Task',1]],function(err,rows){
@@ -421,7 +433,7 @@ var
 
 function maybeSendReport(){
 
-    if ( sending )
+//    if ( sending )
         return;
 
     var
@@ -512,14 +524,14 @@ function maybeSendReport(){
         });
 
         // Mount the text
-        ['empty','incomplete','ok'].forEach(function(status){
+        ['empty', 'incomplete', 'ok'].forEach(function(status){
             for ( var user in totalByUser ) {
                 if ( statusByUser[user] != status )
                     continue;
                 if ( status == "empty" )
-                    text += "  "+names[user]+": Não preencheu o report!!\n";
+                    text += "  "+conf.names[user]+": Não preencheu o report!!\n";
                 else {
-                    text += "\n  "+names[user]+":\n";
+                    text += "\n  "+conf.names[user]+":\n";
                     // Group by task
                     var byTask = {};
                     rowsByUser[user].forEach(function(row){

@@ -3,46 +3,85 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		638C2B6C1B2990D400816233 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638C2B6B1B2990D400816233 /* AppDelegate.swift */; };
-		638C2B6E1B2990D400816233 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 638C2B6D1B2990D400816233 /* Images.xcassets */; };
-		638C2B711B2990D400816233 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638C2B6F1B2990D400816233 /* MainMenu.xib */; };
-		638C2B7D1B2990D400816233 /* DaylogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638C2B7C1B2990D400816233 /* DaylogTests.swift */; };
+		633769F4227D80C5006EE2F3 /* DaylogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633769F3227D80C5006EE2F3 /* DaylogTests.swift */; };
+		633769FF227D80C5006EE2F3 /* DaylogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633769FE227D80C5006EE2F3 /* DaylogUITests.swift */; };
+		638DF978227E4565005028CA /* NSEventModifierFlags+HotKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638DF96D227E4564005028CA /* NSEventModifierFlags+HotKey.swift */; };
+		638DF979227E4565005028CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638DF96E227E4564005028CA /* ViewController.swift */; };
+		638DF97A227E4565005028CA /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 638DF96F227E4564005028CA /* Base.lproj */; };
+		638DF97B227E4565005028CA /* HotKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638DF970227E4565005028CA /* HotKey.swift */; };
+		638DF97C227E4565005028CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 638DF971227E4565005028CA /* Assets.xcassets */; };
+		638DF97D227E4565005028CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638DF972227E4565005028CA /* AppDelegate.swift */; };
+		638DF97E227E4565005028CA /* HotKeysController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638DF974227E4565005028CA /* HotKeysController.swift */; };
+		638DF97F227E4565005028CA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 638DF975227E4565005028CA /* Info.plist */; };
+		638DF980227E4565005028CA /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638DF976227E4565005028CA /* Key.swift */; };
+		638DF981227E4565005028CA /* KeyCombo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638DF977227E4565005028CA /* KeyCombo.swift */; };
+		638DF984227E49CE005028CA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638DF982227E49CE005028CA /* SearchViewController.swift */; };
+		638DF985227E49CE005028CA /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638DF983227E49CE005028CA /* SearchViewController.xib */; };
+		63F4CCC3227E558E004678DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63F4CCC2227E558E004678DF /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		638C2B771B2990D400816233 /* PBXContainerItemProxy */ = {
+		633769F0227D80C5006EE2F3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 638C2B5E1B2990D400816233 /* Project object */;
+			containerPortal = 633769D5227D80C2006EE2F3 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 638C2B651B2990D400816233;
+			remoteGlobalIDString = 633769DC227D80C2006EE2F3;
+			remoteInfo = Daylog;
+		};
+		633769FB227D80C5006EE2F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 633769D5227D80C2006EE2F3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 633769DC227D80C2006EE2F3;
 			remoteInfo = Daylog;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		638C2B661B2990D400816233 /* Daylog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daylog.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		638C2B6A1B2990D400816233 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		638C2B6B1B2990D400816233 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		638C2B6D1B2990D400816233 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		638C2B701B2990D400816233 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		638C2B761B2990D400816233 /* DaylogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DaylogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		638C2B7B1B2990D400816233 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		638C2B7C1B2990D400816233 /* DaylogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaylogTests.swift; sourceTree = "<group>"; };
+		633769DD227D80C2006EE2F3 /* Daylog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daylog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		633769EF227D80C5006EE2F3 /* DaylogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DaylogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		633769F3227D80C5006EE2F3 /* DaylogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaylogTests.swift; sourceTree = "<group>"; };
+		633769F5227D80C5006EE2F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		633769FA227D80C5006EE2F3 /* DaylogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DaylogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		633769FE227D80C5006EE2F3 /* DaylogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaylogUITests.swift; sourceTree = "<group>"; };
+		63376A00227D80C5006EE2F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		638DF96C227E44B2005028CA /* Daylog.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Daylog.entitlements; sourceTree = "<group>"; };
+		638DF96D227E4564005028CA /* NSEventModifierFlags+HotKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSEventModifierFlags+HotKey.swift"; sourceTree = "<group>"; };
+		638DF96E227E4564005028CA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		638DF96F227E4564005028CA /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
+		638DF970227E4565005028CA /* HotKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKey.swift; sourceTree = "<group>"; };
+		638DF971227E4565005028CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		638DF972227E4565005028CA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		638DF973227E4565005028CA /* Daylog.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Daylog.entitlements; sourceTree = "<group>"; };
+		638DF974227E4565005028CA /* HotKeysController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeysController.swift; sourceTree = "<group>"; };
+		638DF975227E4565005028CA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		638DF976227E4565005028CA /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
+		638DF977227E4565005028CA /* KeyCombo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyCombo.swift; sourceTree = "<group>"; };
+		638DF982227E49CE005028CA /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		638DF983227E49CE005028CA /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		63F4CCC2227E558E004678DF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		638C2B631B2990D400816233 /* Frameworks */ = {
+		633769DA227D80C2006EE2F3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		638C2B731B2990D400816233 /* Frameworks */ = {
+		633769EC227D80C5006EE2F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		633769F7227D80C5006EE2F3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -52,70 +91,76 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		638C2B5D1B2990D400816233 = {
+		633769D4227D80C2006EE2F3 = {
 			isa = PBXGroup;
 			children = (
-				638C2B681B2990D400816233 /* Daylog */,
-				638C2B791B2990D400816233 /* DaylogTests */,
-				638C2B671B2990D400816233 /* Products */,
+				633769DF227D80C2006EE2F3 /* Daylog */,
+				633769F2227D80C5006EE2F3 /* DaylogTests */,
+				633769FD227D80C5006EE2F3 /* DaylogUITests */,
+				633769DE227D80C2006EE2F3 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		638C2B671B2990D400816233 /* Products */ = {
+		633769DE227D80C2006EE2F3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				638C2B661B2990D400816233 /* Daylog.app */,
-				638C2B761B2990D400816233 /* DaylogTests.xctest */,
+				633769DD227D80C2006EE2F3 /* Daylog.app */,
+				633769EF227D80C5006EE2F3 /* DaylogTests.xctest */,
+				633769FA227D80C5006EE2F3 /* DaylogUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		638C2B681B2990D400816233 /* Daylog */ = {
+		633769DF227D80C2006EE2F3 /* Daylog */ = {
 			isa = PBXGroup;
 			children = (
-				638C2B6B1B2990D400816233 /* AppDelegate.swift */,
-				638C2B6D1B2990D400816233 /* Images.xcassets */,
-				638C2B6F1B2990D400816233 /* MainMenu.xib */,
-				638C2B691B2990D400816233 /* Supporting Files */,
+				63F4CCC2227E558E004678DF /* Main.storyboard */,
+				638DF96C227E44B2005028CA /* Daylog.entitlements */,
+				638DF972227E4565005028CA /* AppDelegate.swift */,
+				638DF973227E4565005028CA /* Daylog.entitlements */,
+				638DF971227E4565005028CA /* Assets.xcassets */,
+				638DF96F227E4564005028CA /* Base.lproj */,
+				638DF970227E4565005028CA /* HotKey.swift */,
+				638DF974227E4565005028CA /* HotKeysController.swift */,
+				638DF975227E4565005028CA /* Info.plist */,
+				638DF976227E4565005028CA /* Key.swift */,
+				638DF977227E4565005028CA /* KeyCombo.swift */,
+				638DF96D227E4564005028CA /* NSEventModifierFlags+HotKey.swift */,
+				638DF96E227E4564005028CA /* ViewController.swift */,
+				638DF982227E49CE005028CA /* SearchViewController.swift */,
+				638DF983227E49CE005028CA /* SearchViewController.xib */,
 			);
 			path = Daylog;
 			sourceTree = "<group>";
 		};
-		638C2B691B2990D400816233 /* Supporting Files */ = {
+		633769F2227D80C5006EE2F3 /* DaylogTests */ = {
 			isa = PBXGroup;
 			children = (
-				638C2B6A1B2990D400816233 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		638C2B791B2990D400816233 /* DaylogTests */ = {
-			isa = PBXGroup;
-			children = (
-				638C2B7C1B2990D400816233 /* DaylogTests.swift */,
-				638C2B7A1B2990D400816233 /* Supporting Files */,
+				633769F3227D80C5006EE2F3 /* DaylogTests.swift */,
+				633769F5227D80C5006EE2F3 /* Info.plist */,
 			);
 			path = DaylogTests;
 			sourceTree = "<group>";
 		};
-		638C2B7A1B2990D400816233 /* Supporting Files */ = {
+		633769FD227D80C5006EE2F3 /* DaylogUITests */ = {
 			isa = PBXGroup;
 			children = (
-				638C2B7B1B2990D400816233 /* Info.plist */,
+				633769FE227D80C5006EE2F3 /* DaylogUITests.swift */,
+				63376A00227D80C5006EE2F3 /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = DaylogUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		638C2B651B2990D400816233 /* Daylog */ = {
+		633769DC227D80C2006EE2F3 /* Daylog */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 638C2B801B2990D400816233 /* Build configuration list for PBXNativeTarget "Daylog" */;
+			buildConfigurationList = 63376A03227D80C5006EE2F3 /* Build configuration list for PBXNativeTarget "Daylog" */;
 			buildPhases = (
-				638C2B621B2990D400816233 /* Sources */,
-				638C2B631B2990D400816233 /* Frameworks */,
-				638C2B641B2990D400816233 /* Resources */,
+				633769D9227D80C2006EE2F3 /* Sources */,
+				633769DA227D80C2006EE2F3 /* Frameworks */,
+				633769DB227D80C2006EE2F3 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -123,75 +168,109 @@
 			);
 			name = Daylog;
 			productName = Daylog;
-			productReference = 638C2B661B2990D400816233 /* Daylog.app */;
+			productReference = 633769DD227D80C2006EE2F3 /* Daylog.app */;
 			productType = "com.apple.product-type.application";
 		};
-		638C2B751B2990D400816233 /* DaylogTests */ = {
+		633769EE227D80C5006EE2F3 /* DaylogTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 638C2B831B2990D400816233 /* Build configuration list for PBXNativeTarget "DaylogTests" */;
+			buildConfigurationList = 63376A06227D80C5006EE2F3 /* Build configuration list for PBXNativeTarget "DaylogTests" */;
 			buildPhases = (
-				638C2B721B2990D400816233 /* Sources */,
-				638C2B731B2990D400816233 /* Frameworks */,
-				638C2B741B2990D400816233 /* Resources */,
+				633769EB227D80C5006EE2F3 /* Sources */,
+				633769EC227D80C5006EE2F3 /* Frameworks */,
+				633769ED227D80C5006EE2F3 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				638C2B781B2990D400816233 /* PBXTargetDependency */,
+				633769F1227D80C5006EE2F3 /* PBXTargetDependency */,
 			);
 			name = DaylogTests;
 			productName = DaylogTests;
-			productReference = 638C2B761B2990D400816233 /* DaylogTests.xctest */;
+			productReference = 633769EF227D80C5006EE2F3 /* DaylogTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		633769F9227D80C5006EE2F3 /* DaylogUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63376A09227D80C5006EE2F3 /* Build configuration list for PBXNativeTarget "DaylogUITests" */;
+			buildPhases = (
+				633769F6227D80C5006EE2F3 /* Sources */,
+				633769F7227D80C5006EE2F3 /* Frameworks */,
+				633769F8227D80C5006EE2F3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				633769FC227D80C5006EE2F3 /* PBXTargetDependency */,
+			);
+			name = DaylogUITests;
+			productName = DaylogUITests;
+			productReference = 633769FA227D80C5006EE2F3 /* DaylogUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		638C2B5E1B2990D400816233 /* Project object */ = {
+		633769D5227D80C2006EE2F3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "David Oliveira";
 				TargetAttributes = {
-					638C2B651B2990D400816233 = {
-						CreatedOnToolsVersion = 6.3.2;
+					633769DC227D80C2006EE2F3 = {
+						CreatedOnToolsVersion = 10.1;
 					};
-					638C2B751B2990D400816233 = {
-						CreatedOnToolsVersion = 6.3.2;
-						TestTargetID = 638C2B651B2990D400816233;
+					633769EE227D80C5006EE2F3 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 633769DC227D80C2006EE2F3;
+					};
+					633769F9227D80C5006EE2F3 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 633769DC227D80C2006EE2F3;
 					};
 				};
 			};
-			buildConfigurationList = 638C2B611B2990D400816233 /* Build configuration list for PBXProject "Daylog" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			buildConfigurationList = 633769D8227D80C2006EE2F3 /* Build configuration list for PBXProject "Daylog" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 638C2B5D1B2990D400816233;
-			productRefGroup = 638C2B671B2990D400816233 /* Products */;
+			mainGroup = 633769D4227D80C2006EE2F3;
+			productRefGroup = 633769DE227D80C2006EE2F3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				638C2B651B2990D400816233 /* Daylog */,
-				638C2B751B2990D400816233 /* DaylogTests */,
+				633769DC227D80C2006EE2F3 /* Daylog */,
+				633769EE227D80C5006EE2F3 /* DaylogTests */,
+				633769F9227D80C5006EE2F3 /* DaylogUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		638C2B641B2990D400816233 /* Resources */ = {
+		633769DB227D80C2006EE2F3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				638C2B6E1B2990D400816233 /* Images.xcassets in Resources */,
-				638C2B711B2990D400816233 /* MainMenu.xib in Resources */,
+				638DF97F227E4565005028CA /* Info.plist in Resources */,
+				63F4CCC3227E558E004678DF /* Main.storyboard in Resources */,
+				638DF97A227E4565005028CA /* Base.lproj in Resources */,
+				638DF985227E49CE005028CA /* SearchViewController.xib in Resources */,
+				638DF97C227E4565005028CA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		638C2B741B2990D400816233 /* Resources */ = {
+		633769ED227D80C5006EE2F3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		633769F8227D80C5006EE2F3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -201,66 +280,91 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		638C2B621B2990D400816233 /* Sources */ = {
+		633769D9227D80C2006EE2F3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				638C2B6C1B2990D400816233 /* AppDelegate.swift in Sources */,
+				638DF97D227E4565005028CA /* AppDelegate.swift in Sources */,
+				638DF981227E4565005028CA /* KeyCombo.swift in Sources */,
+				638DF984227E49CE005028CA /* SearchViewController.swift in Sources */,
+				638DF980227E4565005028CA /* Key.swift in Sources */,
+				638DF97B227E4565005028CA /* HotKey.swift in Sources */,
+				638DF979227E4565005028CA /* ViewController.swift in Sources */,
+				638DF97E227E4565005028CA /* HotKeysController.swift in Sources */,
+				638DF978227E4565005028CA /* NSEventModifierFlags+HotKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		638C2B721B2990D400816233 /* Sources */ = {
+		633769EB227D80C5006EE2F3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				638C2B7D1B2990D400816233 /* DaylogTests.swift in Sources */,
+				633769F4227D80C5006EE2F3 /* DaylogTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		633769F6227D80C5006EE2F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				633769FF227D80C5006EE2F3 /* DaylogUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		638C2B781B2990D400816233 /* PBXTargetDependency */ = {
+		633769F1227D80C5006EE2F3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 638C2B651B2990D400816233 /* Daylog */;
-			targetProxy = 638C2B771B2990D400816233 /* PBXContainerItemProxy */;
+			target = 633769DC227D80C2006EE2F3 /* Daylog */;
+			targetProxy = 633769F0227D80C5006EE2F3 /* PBXContainerItemProxy */;
+		};
+		633769FC227D80C5006EE2F3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 633769DC227D80C2006EE2F3 /* Daylog */;
+			targetProxy = 633769FB227D80C5006EE2F3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		638C2B6F1B2990D400816233 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				638C2B701B2990D400816233 /* Base */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		638C2B7E1B2990D400816233 /* Debug */ = {
+		63376A01227D80C5006EE2F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -268,36 +372,52 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		638C2B7F1B2990D400816233 /* Release */ = {
+		63376A02227D80C5006EE2F3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -305,7 +425,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -313,101 +433,167 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};
-		638C2B811B2990D400816233 /* Debug */ = {
+		63376A04227D80C5006EE2F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Daylog/Daylog.entitlements;
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Daylog/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = PZ.Daylog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
-		638C2B821B2990D400816233 /* Release */ = {
+		63376A05227D80C5006EE2F3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Daylog/Daylog.entitlements;
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Daylog/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = PZ.Daylog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
-		638C2B841B2990D400816233 /* Debug */ = {
+		63376A07227D80C5006EE2F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = DaylogTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = PZ.DaylogTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Daylog.app/Contents/MacOS/Daylog";
 			};
 			name = Debug;
 		};
-		638C2B851B2990D400816233 /* Release */ = {
+		63376A08227D80C5006EE2F3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = DaylogTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = PZ.DaylogTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Daylog.app/Contents/MacOS/Daylog";
+			};
+			name = Release;
+		};
+		63376A0A227D80C5006EE2F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = DaylogUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = PZ.DaylogUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_TARGET_NAME = Daylog;
+			};
+			name = Debug;
+		};
+		63376A0B227D80C5006EE2F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = DaylogUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = PZ.DaylogUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_TARGET_NAME = Daylog;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		638C2B611B2990D400816233 /* Build configuration list for PBXProject "Daylog" */ = {
+		633769D8227D80C2006EE2F3 /* Build configuration list for PBXProject "Daylog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				638C2B7E1B2990D400816233 /* Debug */,
-				638C2B7F1B2990D400816233 /* Release */,
+				63376A01227D80C5006EE2F3 /* Debug */,
+				63376A02227D80C5006EE2F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		638C2B801B2990D400816233 /* Build configuration list for PBXNativeTarget "Daylog" */ = {
+		63376A03227D80C5006EE2F3 /* Build configuration list for PBXNativeTarget "Daylog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				638C2B811B2990D400816233 /* Debug */,
-				638C2B821B2990D400816233 /* Release */,
+				63376A04227D80C5006EE2F3 /* Debug */,
+				63376A05227D80C5006EE2F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		638C2B831B2990D400816233 /* Build configuration list for PBXNativeTarget "DaylogTests" */ = {
+		63376A06227D80C5006EE2F3 /* Build configuration list for PBXNativeTarget "DaylogTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				638C2B841B2990D400816233 /* Debug */,
-				638C2B851B2990D400816233 /* Release */,
+				63376A07227D80C5006EE2F3 /* Debug */,
+				63376A08227D80C5006EE2F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63376A09227D80C5006EE2F3 /* Build configuration list for PBXNativeTarget "DaylogUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63376A0A227D80C5006EE2F3 /* Debug */,
+				63376A0B227D80C5006EE2F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 638C2B5E1B2990D400816233 /* Project object */;
+	rootObject = 633769D5227D80C2006EE2F3 /* Project object */;
 }
