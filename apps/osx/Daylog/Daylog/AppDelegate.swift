@@ -101,6 +101,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if (active != nil) {
             let item = NSMenuItem(title: active!, action: #selector(AppDelegate.switchToTask(_:)), keyEquivalent: "0")
             item.state = NSControl.StateValue.on
+            item.isEnabled = false
             menu.addItem(item)
             menu.addItem(NSMenuItem.separator())
         }

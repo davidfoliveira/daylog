@@ -1,10 +1,10 @@
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="http://cdn.ink.sapo.pt/3.0.5/css/ink-flex.min.css">
-		<link rel="stylesheet" type="text/css" href="http://cdn.ink.sapo.pt/3.0.5/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="//cdn.ink.sapo.pt/3.0.5/css/ink-flex.min.css">
+		<link rel="stylesheet" type="text/css" href="//cdn.ink.sapo.pt/3.0.5/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
-		<script type="text/javascript" src="http://cdn.ink.sapo.pt/3.0.0/js/ink-all.js"></script>
-		<script type="text/javascript" src="http://cdn.ink.sapo.pt/3.0.0/js/autoload.js"></script>
+		<script type="text/javascript" src="//cdn.ink.sapo.pt/3.0.0/js/ink-all.js"></script>
+		<script type="text/javascript" src="//cdn.ink.sapo.pt/3.0.0/js/autoload.js"></script>
 		<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	</head>
 	<body data-user="[% user %]"[% IF viewUser != user %] class="locked"[% END %]>
