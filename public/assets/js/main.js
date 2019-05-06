@@ -530,41 +530,43 @@ function rebuildTimeChart() {
 	});
 
 	$("#timechart").html("");
-	new ZTimeChart('timechart',timeIntervals,{
-		showIntervals: true,
-		dayStart: function(intervals){
-			var nineoclock = new Date();
-			nineoclock.setHours(9);
-			nineoclock.setMinutes(0);
-			nineoclock.setSeconds(0);
-			nineoclock.setMilliseconds(0);
-			return (intervals[0] && intervals[0].start < nineoclock) ? intervals[0].start : nineoclock;
-		},
-		dayEnd: function(intervals){
-			var twentyoclock = new Date();
-			twentyoclock.setHours(20);
-			twentyoclock.setMinutes(0);
-			twentyoclock.setSeconds(0);
-			twentyoclock.setMilliseconds(0);
-			return (intervals[intervals.length-1] && intervals[intervals.length-1].end > twentyoclock) ? intervals[intervals.length-1].end : twentyoclock;
-		},
-//		dayStartMs: 28800000,
-		adaptableDayStart: true,
-//		daySizeMs:  43200000,
-		titleGenerator: function(el,pos,msDim,opts){
-			var
-				title = "",
-				classDescr = { interval: 'por justificar', overlap: 'sobreposto', slot: '' };
+        if ( typeof(ZTimeChart) != "undefined" ) {
+		new ZTimeChart('timechart',timeIntervals,{
+			showIntervals: true,
+			dayStart: function(intervals){
+				var nineoclock = new Date();
+				nineoclock.setHours(8);
+				nineoclock.setMinutes(0);
+				nineoclock.setSeconds(0);
+				nineoclock.setMilliseconds(0);
+				return (intervals[0] && intervals[0].start < nineoclock) ? intervals[0].start : nineoclock;
+			},
+			dayEnd: function(intervals){
+				var twentyoclock = new Date();
+				twentyoclock.setHours(21);
+				twentyoclock.setMinutes(0);
+				twentyoclock.setSeconds(0);
+				twentyoclock.setMilliseconds(0);
+				return (intervals[intervals.length-1] && intervals[intervals.length-1].end > twentyoclock) ? intervals[intervals.length-1].end : twentyoclock;
+			},
+//			dayStartMs: 28800000,
+			adaptableDayStart: true,
+//			daySizeMs:  43200000,
+			titleGenerator: function(el,pos,msDim,opts){
+				var
+					title = "",
+					classDescr = { interval: 'por justificar', overlap: 'sobreposto', slot: '' };
 
-			if ( el )
-				title = ((el.start.getHours()>9)?el.start.getHours():"0"+el.start.getHours())+":"+
-					((el.start.getMinutes()>9)?el.start.getMinutes():"0"+el.start.getMinutes())+" - "+
-					((el.end.getHours()>9)?el.end.getHours():"0"+el.end.getHours())+":"+
-					((el.end.getMinutes()>9)?el.end.getMinutes():"0"+el.end.getMinutes());
-			title += " ("+window.minutesToTimeString(msDim/1000/60)+') '+classDescr[opts.className];
-			return title;
-		}
-	});
+				if ( el )
+					title = ((el.start.getHours()>9)?el.start.getHours():"0"+el.start.getHours())+":"+
+						((el.start.getMinutes()>9)?el.start.getMinutes():"0"+el.start.getMinutes())+" - "+
+						((el.end.getHours()>9)?el.end.getHours():"0"+el.end.getHours())+":"+
+						((el.end.getMinutes()>9)?el.end.getMinutes():"0"+el.end.getMinutes());
+				title += " ("+window.minutesToTimeString(msDim/1000/60)+') '+classDescr[opts.className];
+				return title;
+			}
+		});
+	}
 
 }
 
