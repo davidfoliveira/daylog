@@ -5,11 +5,11 @@
 	</head>
 	<body data-user="<%= args.user %>"<%= (args.viewUser != args.user) ? 'class="locked"' : '' %>>
 
-<& comps/menu.jst, {...args} &>
+<& comps/menu.jst args &>
 
 		<div class="ink-grid">
 
-<& comps/header.jst, {...args} &>
+<& comps/header.jst args &>
 
 			<div class="ink-form">
 				<div class="control-group column-group no-margin">
