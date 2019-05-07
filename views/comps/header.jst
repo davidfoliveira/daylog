@@ -1,0 +1,14 @@
+            <div class="column-group preheader">
+                <div class="control large-85 xlarge-85 hide-small"></div>
+                <div class="control large-15 xlarge-15 small-100">
+                    <select class="usersel">
+% args.users.forEach(function(user) {
+                        <option value="<%= args.user | h %>"<%= (args.user == args.viewUser) ? ' selected' : '' %>><%= args.user | h %></option>
+% });
+                    </select>
+                </div>
+            </div>
+
+            <header>
+				<h1>Today's log</h1>
+			</header>

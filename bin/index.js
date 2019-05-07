@@ -18,7 +18,7 @@ spritz.start({
     port: 8090
 });
 
-spritz.use(require('spritz-tt2'));
+spritz.use(require('spritz-jstemplate'));
 
 // Basic auth handler
 var authCheck = function(u,p,cb){
@@ -218,7 +218,7 @@ spritz.on('/', {auth: authCheck}, function(req,res){
                 row.Time = minutesToStr(row.Time);
             });
 
-            return spritz.template(req,res,'index',{
+            return spritz.template(req,res,'index.jst',{
                 user:       req.authUser,
                 viewUser:   viewUser,
                 date:       strDate,
@@ -369,7 +369,7 @@ spritz.on(/^\/reports\/by\/project\/$/, {auth: authCheck}, function(req,res){
             days.push(today);
         });
 
-        return spritz.template(req, res, 'reports/by_project', {
+        return spritz.template(req, res, 'reports/by_project.jst', {
             user:       req.authUser,
             viewUser:   viewUser,
             dateFrom:   dateFrom,

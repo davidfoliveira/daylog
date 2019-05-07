@@ -1,0 +1,77 @@
+<html>
+	<head>
+<& comps/headers.jst &>
+		<title>Daylogr / Report</title>
+	</head>
+	<body data-user="<%= args.user %>"<%= (args.viewUser != args.user) ? 'class="locked"' : '' %>>
+
+<& comps/menu.jst &>
+
+		<div class="ink-grid">
+
+<& comps/header.jst, {...args} &>
+
+			<div class="ink-form">
+				<div class="control-group column-group no-margin">
+					<div class="control large-20 xlarge-20 small-100">
+						<input type="text" id="dayPicker" class="ink-datepicker" value="<%= args.date | h %>" data-prev="<%= args.date | h %>"/>
+					</div>
+					<div class="control large-60 xlarge-60 hide-small"></div>
+				</div>
+
+				<div class="column-group horizontal-gutters">
+					<div class="midpane large-100 xlarge-100 small-100">
+
+						<div class="report custeio">
+							<table class="ink-table">
+								<thead>
+									<tr>
+										<th class="project_day">Day/Project</th>
+										<th class="time">Time</th>
+										<th class="pct"></th>
+									</tr>
+								</thead>
+								<tbody>
+% args.days.forEach(function(day){
+									<tr class="day">
+										<td class="date"><%= day.Day | h %></td>
+										<td class="time"><%= day.TotalTime | h %></td>
+										<td class="pct">&nbsp;</td>
+									</tr>
+%   day.Projects.forEach(function(row){
+									<tr>
+										<td class="project"><%= row.Name %><% if(args.showNotes && row.Tasks) { row.Tasks.forEach(function(task){ %><span class="notes"><%= task.Notes | h %></span><% }); }%></td>
+										<td class="time"><%= row.Time %></td>
+										<td class="pct"><%= row.Percentage %></td>
+									</tr>
+%   });
+% });
+								</tbody>
+							</table>
+						</div>
+						<div class="totals">
+							<table class="ink-table">
+								<tr>
+									<td class="project"></td>
+									<td class="time"><%= args.total %></td>
+									<td class="pct"> 100 %</td>
+								</tr>
+							</table>
+						</div>
+						<div class="button-group">
+							<button id="newevent" class="ink-button blue">+</button>
+							<button id="newtxtevents" class="ink-button blue">+ .txt</button>
+							<button id="save" class="ink-button green">Gravar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+<& comps/modal.jst -&>
+
+		<script type="text/javascript" src="/assets/js/main.js"></script>
+
+	</body>
+</html>

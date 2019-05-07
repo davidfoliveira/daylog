@@ -17,7 +17,8 @@
     "async": ">=1.2.1",
     "smtp-connection": ">=1.1.0",
     "spritz": "^0.5.12",
-    "spritz-tt2": "file:../node-spritz-tt2",
+    "spritz-jstemplate": "^0.1.2",
+    "spritz-template": ">=0.2.3",
     "sqlite3": ">=3.0.8",
     "tt2": "file:../node-tt2"
   },

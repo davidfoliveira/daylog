@@ -1,35 +1,20 @@
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="//cdn.ink.sapo.pt/3.0.5/css/ink-flex.min.css">
-		<link rel="stylesheet" type="text/css" href="//cdn.ink.sapo.pt/3.0.5/css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
-		<script type="text/javascript" src="//cdn.ink.sapo.pt/3.0.0/js/ink-all.js"></script>
-		<script type="text/javascript" src="//cdn.ink.sapo.pt/3.0.0/js/autoload.js"></script>
-		<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<& comps/headers.jst &>
+		<title>Daylogr / Home</title>
 	</head>
-	<body data-user="[% user %]"[% IF viewUser != user %] class="locked"[% END %]>
+	<body data-user="<%= args.user %>"<%= (args.viewUser != args.user) ? 'class="locked"' : '' %>>
 
-[% INCLUDE comps/menu.tt -%]
+<& comps/menu.jst &>
 
 		<div class="ink-grid">
 
-			<div class="column-group preheader">
-				<div class="control large-85 xlarge-85 hide-small"></div>
-				<div class="control large-15 xlarge-15 small-100">
-					<select class="usersel">
-[% FOREACH user IN users -%]
-						<option value="[% user %]"[% IF user == viewUser %] selected[% END %]>[% user %]</option>
-[% END -%]
-					</select>
-				</div>
-			</div>
-
-[% INCLUDE comps/header.tt -%]
+<& comps/header.jst {...args} &>
 
 			<div class="ink-form">
 				<div class="control-group column-group no-margin">
 					<div class="control large-20 xlarge-20 small-100">
-						<input type="text" id="dayPicker" class="ink-datepicker" value="[% date %]" data-prev="[% date %]"/>
+						<input type="text" id="dayPicker" class="ink-datepicker" value="<%= args.date | h %>" data-prev="<%= args.date | h %>"/>
 					</div>
 					<div class="control large-60 xlarge-60 hide-small"></div>
 				</div>
@@ -52,13 +37,13 @@
 									</tr>
 								</thead>
 								<tbody>
-[% FOREACH row IN todaysLog -%]
+% args.todaysLog.forEach(function(row) {
 									<tr>
-										<td class="project" title="[% row.Notes FILTER html %]" data-notes="[% row.Notes FILTER html %]">[% row.Task %]</td>
-										<td class="time">[% row.Time %]</td>
+										<td class="project" title="<% row.Notes | h %>" data-notes="<%= row.Notes | h %>"><%= row.Task | h %></td>
+										<td class="time"><%= row.Time | h %></td>
 										<td class="tools"><button class="del fa fa-trash-o"></button></td>
 									</tr>
-[% END -%]
+% });
 								</tbody>
 							</table>
 						</div>
@@ -66,7 +51,7 @@
 							<table class="ink-table">
 								<tr>
 									<td class="project"></td>
-									<td class="time">[% _total %]</td>
+									<td class="time"><% args._total | h %></td>
 									<td class="tools"></td>
 								</tr>
 							</table>
@@ -81,9 +66,9 @@
 						<div class="projects">
 							<h4>Projects</h4>
 							<ul>
-[% FOREACH p IN projects %]
-								<li><a href="#">[% p FILTER html %]</a></li>
-[% END %]
+% args.projects.forEach(function(project){
+								<li><a href="#"><%= project | h %></a></li>
+% });
 							</ul>
 						</div>
 					</div>
@@ -92,7 +77,7 @@
 
 		</div>
 
-[% INCLUDE comps/modal.tt -%]
+<& comps/modal.jst &>
 
 		<script type="text/javascript" src="/assets/js/ztimechart.js?3"></script>
 		<script type="text/javascript" src="/assets/js/main.js?3"></script>
