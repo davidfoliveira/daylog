@@ -82,7 +82,7 @@ spritz.on('/services/topprojects',{ auth: authCheck },function(req, res){
             }
 
             return spritz.json(req, res, {
-                projects,
+                projects: projects,
                 active: task ? task.Task : null
             }, 200);            
         });
