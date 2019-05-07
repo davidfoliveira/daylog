@@ -5,7 +5,7 @@
 	</head>
 	<body data-user="<%= args.user %>"<%= (args.viewUser != args.user) ? 'class="locked"' : '' %>>
 
-<& comps/menu.jst &>
+<& comps/menu.jst, {...args} &>
 
 		<div class="ink-grid">
 

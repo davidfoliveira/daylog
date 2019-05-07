@@ -1,4 +1,8 @@
+.menu .home .icon { height: 28px; margin: 0 10px 0 0; }
+.menu .right { float: right !important; }
 .preheader { margin-top: 1em }
+/*.preheader .usersel-layer { text-align: right; } */
+.usersel { margin: 10px 10px 0 0;}
 header { margin-top: 1em }
 #editable.time { width: 50% }
 .mainpane { margin-top: 2em }

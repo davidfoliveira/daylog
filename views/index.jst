@@ -1,11 +1,11 @@
 <html>
 	<head>
 <& comps/headers.jst &>
-		<title>Daylogr / Home</title>
+		<title>Daylogɹ / Home</title>
 	</head>
 	<body data-user="<%= args.user %>"<%= (args.viewUser != args.user) ? 'class="locked"' : '' %>>
 
-<& comps/menu.jst &>
+<& comps/menu.jst {...args} &>
 
 		<div class="ink-grid">
 

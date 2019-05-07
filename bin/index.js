@@ -7,6 +7,7 @@ var
     spritz      = require('spritz'),
     log         = require('../lib/log').logger('index'),
 //  SMTPC       = require('smtp-connection'),
+    bizUsers    = require('../lib/biz/users'),
     bizTasks    = require('../lib/biz/tasks'),
     bizReports  = require('../lib/biz/reports'),
     datetime    = require('../lib/util/datetime'),
@@ -29,7 +30,7 @@ var authCheck = function(u,p,cb){
 
 
 // Public
-spritz.on(/^\/services\/today$/,{auth: authCheck},function(req,res){
+spritz.on(/^\/services\/today$/,{ auth: authCheck },function(req, res){
 
     var
         today = new Date(),
@@ -37,53 +38,53 @@ spritz.on(/^\/services\/today$/,{auth: authCheck},function(req,res){
         total = 0;
 
     // Get the existing task list
-    return bizTasks.getTodaysTimesByUser(reportUsers,function(err,timesByUser){
+    return bizTasks.getTodaysTimesByUser(reportUsers, function(err, timesByUser){
         if ( err ) {
             console.log("Error getting times by user: ",err);
-            return spritz.json(req,res,err,500);
+            return spritz.json(req, res, err, 500);
         }
-        return spritz.json(req,res,timesByUser);
+        return spritz.json(req, res, timesByUser);
     });
 
 });
 
-spritz.on('/services/projects',{auth: authCheck},function(req,res){
+spritz.on('/services/projects',{ auth: authCheck },function(req, res){
 
     var
         filter = {};
 
-    return bizTasks.getProjects({name: req.args.filter, user: req.args.user},function(err,projects){
+    return bizTasks.getProjects({ name: req.args.filter, user: req.args.user }, function(err, projects){
         if ( err ) {
-            console.log("Error getting project list: ",err);
-            return spritz.json(req,res,err,500);
+            console.log("Error getting project list: ", err);
+            return spritz.json(req, res, err, 500);
         }
 
-        return spritz.json(req,res,projects,200);
+        return spritz.json(req, res, projects, 200);
     });
 
 });
 
-spritz.on('/services/topprojects',{auth: authCheck},function(req,res){
+spritz.on('/services/topprojects',{ auth: authCheck },function(req, res){
     var
         user = req.args.user || req.authUser;
 
-    return bizTasks.getTopProjects(user, 3, 10, function(err,projects){
+    return bizTasks.getTopProjects(user, 3, 10, function(err, projects){
         if ( err ) {
-            console.log("Error getting project list: ",err);
-            return spritz.json(req,res,err,500);
+            console.log("Error getting project list: ", err);
+            return spritz.json(req, res, err, 500);
         }
 
         // Get the currently active project
-        bizTasks.getCurrentTask(user, function(err, task){
+        return bizTasks.getCurrentTask(user, function(err, task){
             if ( err ) {
                 console.log("Error getting current task: ", err);
                 return spritz.json(req, res, err, 500);
             }
 
-            return spritz.json(req,res,{
+            return spritz.json(req, res, {
                 projects,
                 active: task ? task.Task : null
-            },200);            
+            }, 200);            
         });
 
     });
@@ -92,7 +93,7 @@ spritz.on('/services/topprojects',{auth: authCheck},function(req,res){
 
 
 // Add a task and set as current task
-spritz.on('/services/switch',{auth: authCheck}, function(req,res){
+spritz.on('/services/switch',{ auth: authCheck }, function(req, res){
 
     var
         user = req.authUser,
@@ -100,54 +101,54 @@ spritz.on('/services/switch',{auth: authCheck}, function(req,res){
 
     // Validation
     if ( !user )
-        return spritz.json(req,res,{error:"ENOAUTH",description:"User not authenticated"},500);
+        return spritz.json(req, res, { error: "ENOAUTH", description: "User not authenticated" }, 500);
     if ( !taskName || taskName.match(/^\s*$/) )
-        return spritz.json(req,res,{error:"ENOTASK",description:"Please specify a task name (t=)"},500);
+        return spritz.json(req, res, { error: "ENOTASK", description: "Please specify a task name (t=)" }, 500);
 
     // Get current task
-    bizTasks.switchTask(user, taskName,function(err,task){
+    bizTasks.switchTask(user, taskName, function(err, task){
         if ( err ) {
-            log.error("Error switching user '"+user+"' task: ",err);
-            return spritz.json(req,res,{error:"ESWTSK",description:"Error switching user task",detail:err},500);
+            log.error("Error switching user '"+user+"' task: ", err);
+            return spritz.json(req, res, { error: "ESWTSK", description: "Error switching user task", detail: err }, 500);
         }
 
-        return spritz.json(req,res,{ok:true, task: task.Name, id: task._id});
+        return spritz.json(req, res, { ok: true, task: task.Name, id: task._id });
     });
 
 });
 
 // Close a task and set as current task
-spritz.on('/services/close', {auth: authCheck}, function(req,res){
+spritz.on('/services/close', { auth: authCheck }, function(req, res){
 
     var
         user = req.authUser;
 
     // Validation
     if ( !user )
-        return spritz.json(req,res,{error:"ENOAUTH",description:"User not authenticated"},500);
+        return spritz.json(req, res, { error: "ENOAUTH", description: "User not authenticated" }, 500);
 
     // Get current task
-    return bizTasks.getCurrentTask(user,function(err,ctask){
+    return bizTasks.getCurrentTask(user, function(err, ctask){
         if ( err ) {
-            log.error("Error getting current user '"+user+"' task: ",err);
-            return spritz.json(req,res,{error:"ENOTASK",description:"There is no current task assigned to this user and for current day"},200);
+            log.error("Error getting current user '"+user+"' task: ", err);
+            return spritz.json(req, res, { error: "ENOTASK", description: "There is no current task assigned to this user and for current day" }, 200);
         }
 
         // Close it
-        return bizTasks.closeTask(user,ctask,function(err,task){
+        return bizTasks.closeTask(user, ctask,function(err, task){
             if ( err ) {
                 log.error("Error closing user '"+user+"' task: ",err);
-                return spritz.json(req,res,{error:"ECLTSK",description:"Error closing user task",detail:err},500);
+                return spritz.json(req, res, { error: "ECLTSK", description: "Error closing user task", detail: err}, 500);
             }
 
-            return spritz.json(req,res,{ok:true, task: task.Name, id: task._id});
+            return spritz.json(req,res,{ ok: true, task: task.Name, id: task._id });
         });
     });
 
 });
 
 // Resume a task and set as current task
-spritz.on('/services/resume', {auth: authCheck}, function(req,res){
+spritz.on('/services/resume', { auth: authCheck }, function(req, res){
 
     var
         user = req.authUser,
@@ -155,23 +156,23 @@ spritz.on('/services/resume', {auth: authCheck}, function(req,res){
 
     // Validation
     if ( !user )
-        return spritz.json(req,res,{error:"ENOAUTH",description:"User not authenticated"},500);
+        return spritz.json(req, res, { error: "ENOAUTH", description: "User not authenticated" }, 500);
 
     // Get current task
-    return bizTasks.getCurrentTask(user,function(err,ctask){
+    return bizTasks.getCurrentTask(user, function(err, ctask){
         if ( err ) {
-            log.error("Error getting current user '"+user+"' task: ",err);
-            return spritz.json(req,res,{error:"ENOTASK",description:"There is no current task assigned to this user and for current day"},200);
+            log.error("Error getting current user '"+user+"' task: ", err);
+            return spritz.json(req, res, { error: "ENOTASK", description: "There is no current task assigned to this user and for current day" }, 200);
         }
 
         // Open it
-        return bizTasks.openTask(user,ctask.TaskName,function(err,task){
+        return bizTasks.openTask(user, ctask.TaskName, function(err, task){
             if ( err ) {
-                log.error("Error closing user '"+user+"' task: ",err);
-                return spritz.json(req,res,{error:"EOPTSK",description:"Error opening user task",detail:err},500);
+                log.error("Error closing user '"+user+"' task: ", err);
+                return spritz.json(req, res, { error: "EOPTSK", description: "Error opening user task", detail: err}, 500);
             }
 
-            return spritz.json(req,res,{ok:true, task: task.Name, id: task._id});
+            return spritz.json(req, res, { ok: true, task: task.Name, id: task._id });
         });
     });
 
@@ -222,9 +223,10 @@ spritz.on('/', {auth: authCheck}, function(req,res){
                 user:       req.authUser,
                 viewUser:   viewUser,
                 date:       strDate,
+                title:      (binDate.toJSON().substr(0, 10) == today.toJSON().substr(0, 10)) ? "Today" : binDate.toJSON().substr(0, 10),
                 todaysLog:  rows,
                 total:      minutesToStr(total),
-                users:      Object.keys(conf.auths).sort(),
+                users:      bizUsers.getUsers(),
                 projects:   topProjects
             });
         });
@@ -374,10 +376,11 @@ spritz.on(/^\/reports\/by\/project\/$/, {auth: authCheck}, function(req,res){
             viewUser:   viewUser,
             dateFrom:   dateFrom,
             dateTo:     dateTo,
+            title:      "Report for "+dateFrom.toJSON().substr(0, 7),
             date:       (parseInt(dateFrom.getYear()+1900)+"-"+(dateFrom.getMonth()+1)+"-"+dateFrom.getDate()),
             days:       days,
             total:      minutesToStr(total),
-            users:      Object.keys(conf.auths).sort(),
+            users:      bizUsers.getUsers(),
             showNotes:  (req.args && req.args.showNotes == 'true')
         });
     });

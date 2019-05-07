@@ -1,6 +1,16 @@
 		<nav class="ink-navigation">
 			<ul class="menu horizontal black">
-				<li><a href="/">Home</a></li>
+				<li class="home"><a href="/"><img class="icon" src="/assets/icons/daylogr.png"><span class="text">Home</span></a></li>
 				<li><a href="/reports/by/project/">Report</a></li>
+% if (args.users) {
+                <li class="right">
+                    <select class="usersel">
+% args.users.forEach(function(user) {
+                        <option value="<%= args.user | h %>"<%= (user.Id == args.viewUser) ? ' selected' : '' %>><%= user.Name | h %></option>
+% });
+                    </select>
+
+                </li>
+% }
 			</ul>
 		</nav>
