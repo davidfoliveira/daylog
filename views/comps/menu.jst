@@ -6,7 +6,7 @@
                 <li class="right">
                     <select class="usersel">
 % args.users.forEach(function(user) {
-                        <option value="<%= args.user | h %>"<%= (user.Id == args.viewUser) ? ' selected' : '' %>><%= user.Name | h %></option>
+                        <option value="<%= user.Id | h %>"<%= (user.Id == args.viewUser) ? ' selected' : '' %>><%= user.Name | h %></option>
 % });
                     </select>
 
