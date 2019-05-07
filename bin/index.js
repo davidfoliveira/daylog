@@ -33,7 +33,7 @@ var authCheck = function(u,p,cb){
 spritz.on(/^\/services\/today$/,{ auth: authCheck },function(req, res){
 
     var
-        today = new Date(),
+        today = datetime.now(),
         strDate = (parseInt(today.getYear()+1900)+"-"+parseInt(today.getMonth()+1)+"-"+today.getDate()),
         total = 0;
 
@@ -190,7 +190,7 @@ spritz.on('/', {auth: authCheck}, function(req,res){
 
     // What date ?
     var
-        today = new Date(),
+        today = datetime.now(),
         strDate = req.args['date'],
         binDate,
         total = 0,
@@ -200,15 +200,18 @@ spritz.on('/', {auth: authCheck}, function(req,res){
         strDate = (parseInt(today.getYear()+1900)+"-"+parseInt(today.getMonth()+1)+"-"+today.getDate());
     binDate = datetime.fromString(strDate);
 
-    if ( binDate > today )
-        return spritz.json(req,res,{error:"Date on the future"},302,{location:'/'})
+    if ( binDate > today ) {
+        console.log("BD: ", binDate);
+        console.log("TD: ", today);
+        return spritz.json(req,res,{ error: "Date on the future" }, 302, { location: '/' });
+    }
 //      strDate = (parseInt(today.getYear()+1900)+"-"+parseInt(today.getMonth()+1)+"-"+today.getDate());
 
     // Get the existing task list
-    return bizTasks.getUserDaylog(viewUser,binDate,function(err,rows){
+    return bizTasks.getUserDaylog(viewUser, binDate, function(err, rows){
         if ( err ) {
             log.error("Error getting user '"+viewUser+"' daylog tasks: ",err);
-            return spritz.json(req,res,{error:"EGYDYL",description: "Error getting user daylog", details: err},500);
+            return spritz.json(req,res,{ error: "EGYDYL", description: "Error getting user daylog", details: err}, 500);
         }
 
         // Get top projects
@@ -247,7 +250,7 @@ spritz.on('/save',{method:"POST", auth: authCheck},function(req,res){
         rows = [];
 
     if ( date == null || !date.match(/^\d{4}\-\d{1,2}\-\d{1,2}$/) ) {
-        var today = new Date();
+        var today = datetime.now();
         date = (parseInt(today.getYear()+1900)+"-"+parseInt(today.getMonth()+1)+"-"+today.getDate());
     }
     date = datetime.fromString(date);
@@ -303,7 +306,7 @@ spritz.on(/^\/reports\/by\/project\/$/, {auth: authCheck}, function(req,res){
     else
         dateFrom = null;
     if ( !dateFrom ) {
-        dateFrom = new Date();
+        dateFrom = datetime.now();
         dateFrom.setDate(1);
         dateFrom = datetime.fromString(dateFrom.toJSON().substr(0, 10))
     }
@@ -441,9 +444,9 @@ function maybeSendReport(){
 
     var
         handler     = function(){ sending = false; },
-        now         = new Date(),
-        today       = new Date(),
-        yesterday   = new Date();
+        now         = datetime.now(),
+        today       = datetime.now(),
+        yesterday   = datetime.now();
 
     // FIXME: remove the next 2 lines
 //  today.setDate(today.getDate()-3);
@@ -581,7 +584,7 @@ function maybeSendReport(){
                 console.log("Report successfully sent: ",reply);
 
                 // Register report
-                lastReport = { Date: strToday, Sent: new Date(), Subject: subject, Text: text };
+                lastReport = { Date: strToday, Sent: datetime.now(), Subject: subject, Text: text };
                 bizReports.report(lastReport,function(err,ok){
                     if ( err ) {
                         log.error("Error registering report: ",err);
